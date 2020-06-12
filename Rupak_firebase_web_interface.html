@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function updateDatabase(location, data){
+        var ProjectID = document.getElementById("ProjectID").value;
+        var baseurl = "https://"+ProjectID+".firebaseio.com/cmd";
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("PUT", baseurl+location+".json", true);
+        xmlhttp.setRequestHeader('Content-type','text/plain;');
+        xmlhttp.send("\""+data+"\"");
+      }
+    </script>
+    <style>
+    .button {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 8px 16px;
+      cursor: pointer;
+      width: 10%;
+      height: 10%;
+      border-radius: 8px;
+      }
+
+      .button1 {background-color: #008080;} /* Teal */
+      .button2 {background-color: #454545;} /* Dark gray */
+
+      input[type=text], select {
+        width: 25%;
+        padding: 12px 20px;
+        margin: 8px 2px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+      </style>
+  </head>
+  <body style="background-color:white; font-family:'Helvetica'">
+    <input type="text" id="ProjectID" name="ProjectID" placeholder="Firebase project ID">
+
+    <br></br>
+    <font color="black" size="5" >Device 1</font>
+    <button class="button button1" onclick='updateDatabase("/Device1", "ON")'>ON</button>
+    <button class="button button2" onclick='updateDatabase("/Device1", "OFF")'>OFF</button>
+
+    <br></br>
+    <font color="black" size="5" >Device 2</font>
+    <button class="button button1" onclick='updateDatabase("/Device2", "ON")'>ON</button>
+    <button class="button button2" onclick='updateDatabase("/Device2", "OFF")'>OFF</button>
+
+    <br></br>
+    <font color="black" size="5" >Device 3</font>
+    <button class="button button1" onclick='updateDatabase("/Device3", "ON")'>ON</button>
+    <button class="button button2" onclick='updateDatabase("/Device3", "OFF")'>OFF</button>
+
+    <br></br>
+    <font color="black" size="5" >Device 4</font>
+    <button class="button button1" onclick='updateDatabase("/Device4", "ON")'>ON</button>
+    <button class="button button2" onclick='updateDatabase("/Device4", "OFF")'>OFF</button>
+
+    <p style="color:#e0e0e0;font-size:18px;margin:8px 2px;">Rupak's Realtime Firebase Automation</p>
+  </body>
+</html>
